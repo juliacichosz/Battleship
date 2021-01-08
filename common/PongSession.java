@@ -171,7 +171,7 @@ public class PongSession implements Runnable {
     }
 
     private void win() {
-        System.out.print("You won :)");
+        System.out.println("You won :)");
         System.out.println("Opponent's map:");
         displayMap(MapsOwner.OPPONENT);
         System.out.println();
