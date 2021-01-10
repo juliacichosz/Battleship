@@ -4,7 +4,7 @@ public class Ship {
     private final List<Mast> masts = new ArrayList<>();
 
     private static final String HIT = "hit";
-    private static final String HIT_AND_SUNK = "hit and sunk";
+    private static final String HIT_AND_SANK = "hit and sank";
 
     public boolean sunk = false;
 
@@ -38,7 +38,7 @@ public class Ship {
 
         if (sunkMastsOnly) {
             sunk = true;
-            return HIT_AND_SUNK;
+            return HIT_AND_SANK;
         }
 
         return HIT;

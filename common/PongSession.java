@@ -19,9 +19,9 @@ public class PongSession implements Runnable {
 
     private static final String START = "start";
     private static final String MISS = "miss";
-    private static final String LAST_SUNK = "last sank";
+    private static final String LAST_SANK = "last sank";
     private static final String HIT = "hit";
-    private static final String HIT_AND_SUNK = "hit and sank";
+    private static final String HIT_AND_SANK = "hit and sank";
     private static final String COMMUNICATION_ERROR = "Communication error";
 
     public PongSession(Socket socket, PingPongProtocol mode, File mapFile, Ships ships) throws IOException {
@@ -45,7 +45,7 @@ public class PongSession implements Runnable {
     }
 
     private String extractCommand(String message) {
-        if(message.equals(LAST_SUNK)) {
+        if(message.equals(LAST_SANK)) {
             return message.trim();
         }
         String separator = ";";
@@ -55,7 +55,7 @@ public class PongSession implements Runnable {
 
     public boolean validMessage(String message) {
         String command = extractCommand(message);
-        return command.equals(START) || command.equals(MISS) || command.equals(LAST_SUNK) || command.equals(HIT) || command.equals(HIT_AND_SUNK);
+        return command.equals(START) || command.equals(MISS) || command.equals(LAST_SANK) || command.equals(HIT) || command.equals(HIT_AND_SANK);
     }
 
     public void exitGame() {
@@ -163,11 +163,11 @@ public class PongSession implements Runnable {
 
     private boolean opponentLost(String message) {
         String command = extractCommand(message);
-        return LAST_SUNK.equals(command);
+        return LAST_SANK.equals(command);
     }
 
     private boolean iLost(String command) {
-        return LAST_SUNK.equals(command);
+        return LAST_SANK.equals(command);
     }
 
     private void win() {
@@ -259,7 +259,7 @@ public class PongSession implements Runnable {
             markField(coordinates, '@', mapsOwner);
         } else {
             markField(coordinates, '#', mapsOwner);
-            if(HIT_AND_SUNK.equals(resultCommand) || LAST_SUNK.equals(resultCommand)) {
+            if(HIT_AND_SANK.equals(resultCommand) || LAST_SANK.equals(resultCommand)) {
                 markAdjacentFields(coordinates);
             }
         }
