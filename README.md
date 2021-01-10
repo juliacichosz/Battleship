@@ -1,5 +1,5 @@
 ## Battleship
-Battleship game with randomized moves.
+Battleship game with randomized moves (with Client-Server communication).
 
 #### Program arguments:
 * mode [client|server] - indicates the mode (as server - receives connection, as client - connects to server)  
