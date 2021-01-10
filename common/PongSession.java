@@ -19,9 +19,9 @@ public class PongSession implements Runnable {
 
     private static final String START = "start";
     private static final String MISS = "miss";
-    private static final String LAST_SUNK = "last sunk";
+    private static final String LAST_SUNK = "last sank";
     private static final String HIT = "hit";
-    private static final String HIT_AND_SUNK = "hit and sunk";
+    private static final String HIT_AND_SUNK = "hit and sank";
     private static final String COMMUNICATION_ERROR = "Communication error";
 
     public PongSession(Socket socket, PingPongProtocol mode, File mapFile, Ships ships) throws IOException {
